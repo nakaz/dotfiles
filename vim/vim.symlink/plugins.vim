@@ -37,6 +37,9 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 " Lean & mean status/tabline
 Plug 'bling/vim-airline'
 
+" Vim-Airline themes for Status Bar
+Plug 'vim-airline/vim-airline-themes'
+
 " Comment stuff out
 Plug 'tpope/vim-commentary'
 

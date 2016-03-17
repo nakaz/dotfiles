@@ -1,8 +1,8 @@
 [user]
-  name = Emmanuel Pilande
-  email = manny@sudokrew.com
+  name = Sean Nakamura
+  email = seanenakamura@gmail.com
 [github]
-  user = epilande
+  user = senakamura
 [color]
   diff = auto
   status = auto
@@ -13,11 +13,5 @@
   excludesfiles = ~/.gitignore
   excludesfile = ~/.gitignore_global
   editor = vim
-[merge]
-  tool = kdiff3
-[mergetool "kdiff3"]
-  path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
 [push]
   default = simple
-[mergetool]
-  keepBackup = true
