@@ -389,7 +389,7 @@ let g:tmuxline_preset = {
   \"c"    : "",
   \"win"  : "#I  #W",
   \"cwin" : "#I  #W",
-  \"x"    : ["♫ #(source ~/.tmux/current-pianobar-song.sh)"],
+  \"x"    : ["♫ #(osascript ~/.dotfiles/applescripts/itunes.scpt)"],
   \"y"    : ["%a", "%b %d", "%R"],
   \"z"    : "#h",
   \'options' : {'status-justify' : 'left'}}
