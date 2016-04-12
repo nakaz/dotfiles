@@ -30,3 +30,5 @@ cd nerd-fonts
 #### Instant markdown preview
 `npm -g install instant-markdown-d`
 
+#### Fuzzy Files
+`brew install fzf`
