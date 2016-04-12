@@ -66,6 +66,18 @@ else
   endtry
 endif
 
+function! ReverseBackground()
+  if &background=="light"
+    set background=dark
+    colorscheme gotham
+  else
+    set background=light
+    colorscheme solarized
+    execute 'AirlineTheme solarized'
+  endif
+endfunction
+command! Invbg call ReverseBackground()
+
 " Set extra options when running in GUI mode
 if has("gui_running")
   set guioptions-=T
@@ -147,8 +159,11 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" Add a bit extra margin to the left
-set foldcolumn=1
+" Set up code folding
+set foldmethod=indent
+set foldnestmax=20
+" set foldlevelstart=20
+set nofoldenable
 
 " Disable scrollbars (real hackers don't use scrollbars for navigation!)
 set guioptions-=r
@@ -166,8 +181,9 @@ hi VertSplit cterm=none ctermbg=none ctermfg=23
 hi Visual cterm=none ctermbg=11 ctermfg=none
 
 " Set folded highlight color
-hi Folded ctermbg=10
+hi Folded ctermbg=10 ctermfg=10
 
+hi TagbarHighlight ctermbg=10 ctermfg=7
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " => FILES, BACKUPS, AND UNDO
@@ -205,6 +221,7 @@ set tabstop=2
 " Linebreak on 500 characters
 set lbr
 set tw=500
+autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
 set ai "Auto indent
 set si "Smart indent
@@ -212,6 +229,9 @@ set wrap "Wrap lines
 
 " Strip trailing spaces on save
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+" Automatically recognize filetypes by extension
+autocmd BufRead,BufNewFile .{babel,eslint,stylelint}rc set filetype=json
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -245,7 +265,8 @@ if has('nvim')
   nnoremap <BS> <C-W>h
 
   " Exit terminal input mode
-  tnoremap <Esc> <C-\><C-n>
+  " tnoremap <Esc> <C-\><C-n>
+
   " Easy navigation from terminal
   tnoremap <C-h> <C-\><C-n><C-w>h
   tnoremap <C-j> <C-\><C-n><C-w>j
@@ -253,18 +274,17 @@ if has('nvim')
   tnoremap <C-l> <C-\><C-n><C-w>l
 endif
 
+" Map Alt-[h,j,k,l] for resizing a window split
+nnoremap <silent> ˙ :vertical resize -2<CR>
+nnoremap <silent> ˚ :resize -2<CR>
+nnoremap <silent> ∆ :resize +2<CR>
+nnoremap <silent> ¬ :vertical resize +2<CR>
+
 " Close the current buffer
 map <leader>bd :Bclose<cr>
 
 " Close all the buffers
 map <leader>ba :1,1000 bd!<cr>
-
-" Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
-map <leader>t<leader> :tabnext
 
 " Specify the behavior when switching between buffers
 try
@@ -338,13 +358,6 @@ map 0 ^
 " Trim WhiteSpace
 nnoremap <Leader>tws :%s/\s\+$//e<CR>
 
-" Move a line of text using ALT+[jk]
-nmap ∆ mz:m+<cr>`z
-nmap ˚ mz:m-2<cr>`z
-vmap ∆ :m'>+<cr>`<my`>mzgv`yo`z
-vmap ˚ :m'<-2<cr>`>my`<mzgv`yo`z
-
-
 if has("mac") || has("macunix")
   nmap <D-j> <M-j>
   nmap <D-k> <M-k>
@@ -375,9 +388,6 @@ map <silent> <leader>n :execute ':topleft split ' . g:notes<cr>:execute ':resize
 " Open daily notes
 let g:daily_notes = g:notes_folder . 'daily-notes.org'
 map <silent> <leader>nn :execute ':topleft split ' . g:daily_notes<cr>:execute ':resize' . g:note_size<cr>
-" Open school notes
-let g:school_notes = g:notes_folder . 'school-notes.md'
-map <silent> <leader>ns :execute ':topleft split ' . g:school_notes<cr>:execute ':resize' . g:note_size<cr>
 
 " Toggle quotes for json file
 map <leader>" :call ConcealJsonToggle()<cr>
@@ -396,20 +406,32 @@ nnoremap Q @q
 nnoremap <leader><leader> <C-^>
 
 " Math macro, do math on current line
-nnoremap <leader>m 0v$hyA = <C-r>=<C-r>"<CR><Esc>
+nnoremap <leader>= 0v$hyA = <C-r>=<C-r>"<CR><Esc>
 
 " Quickly select text you just pasted
 nnoremap gV `[v`]
 
+" Quickly edit your macros
+" Usage <leader>m or "q<leader>m
+nnoremap <leader>m  :<c-u><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
+
+" Insert current date
+nnoremap <leader>cd "=strftime("[%Y-%m-%d %a]")<CR>P
+
+" Saner behavior of n and N
+nnoremap <expr> n  'Nn'[v:searchforward]
+nnoremap <expr> N  'nN'[v:searchforward]
+
+" Search current word without moving cursor
+nmap<silent> K :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
+
+" Easily jump between brackets
+map <tab> %
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " => HELPER FUNCTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""
-
-function! CmdLine(str)
-  exe "menu Foo.Bar :" . a:str
-  emenu Foo.Bar
-  unmenu Foo
-endfunction
 
 function! VisualSelection(direction, extra_filter) range
   let l:saved_reg = @"

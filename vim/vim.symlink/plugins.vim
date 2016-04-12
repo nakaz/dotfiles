@@ -13,6 +13,10 @@ Plug 'Shougo/unite.vim'
 " Most Recently Used
 Plug 'Shougo/neomru.vim'
 
+" Command-line fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 " Code completion
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 
@@ -28,14 +32,15 @@ Plug 'jlanzarotta/bufexplorer'
 " Tree explorer for vim.
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-" Syntax checking
-Plug 'scrooloose/syntastic'
+" Asynchronous linter
+Plug 'benekastah/neomake'
 
 " Cache file automatically
 Plug 'MarcWeber/vim-addon-mw-utils'
 
 " Lean & mean status/tabline
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Vim-Airline themes for Status Bar
 Plug 'vim-airline/vim-airline-themes'
@@ -49,14 +54,11 @@ Plug 'terryma/vim-expand-region'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 
-" LESS syntax highlighting
-" Plug 'groenewege/vim-less'
-
 " SCSS syntax highlighting
-Plug 'cakebaker/scss-syntax.vim'
+Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 
 " Markdown syntax highlighting
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown', { 'for': 'md' }
 
 " Enable repeating supported plugin maps
 Plug 'tpope/vim-repeat'
@@ -75,9 +77,6 @@ Plug 'Yggdroot/indentLine'
 
 " Tmux statusline generator with support for airline
 Plug 'edkolev/tmuxline.vim'
-
-" Typescript syntax highlighting
-" Plug 'leafgarland/typescript-vim'
 
 " Undo history visualizer
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
@@ -101,22 +100,16 @@ Plug 'airblade/vim-gitgutter'
 Plug 'suan/vim-instant-markdown'
 
 " Jade syntax highlighting
-" Plug 'digitaltoad/vim-jade'
+Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 
 " Javascript indentation and syntax support
 Plug 'pangloss/vim-javascript'
 
-" Enhanced javascript syntax
-Plug 'jelera/vim-javascript-syntax'
+" Yet Another JavaScript Syntax
+Plug 'othree/yajs.vim'
 
 " Sublime Text style multiple selections
 Plug 'terryma/vim-multiple-cursors'
-
-" Mustache and handlebars mode for vim
-" Plug 'mustache/vim-mustache-handlebars'
-
-" Toggle, display and navigate marks
-Plug 'kshenoy/vim-signature'
 
 " Seamless navigation between tmux panes and vim splits
 Plug 'christoomey/vim-tmux-navigator'
@@ -133,6 +126,9 @@ Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 " Gotham colorscheme
 Plug 'whatyouhide/vim-gotham'
 
+" Solarized colorscheme
+Plug 'altercation/vim-colors-solarized'
+
 " Vim Orgmode
 Plug 'jceb/vim-orgmode', { 'for': 'org' }
 
@@ -147,6 +143,15 @@ Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 
 " React JSX syntax highlighting & indenting
 Plug 'mxw/vim-jsx'
+
+" EditorConfig for consistent coding style
+Plug 'editorconfig/editorconfig-vim'
+
+" Class outline viewer
+Plug 'majutsushi/tagbar'
+
+" Provides additional text objects
+Plug 'wellle/targets.vim'
 
 call plug#end()
 
@@ -210,13 +215,15 @@ let g:unite_data_directory='~/.vim/.cache/unite'
 let g:unite_source_history_yank_enable=1
 let g:unite_source_rec_max_cache_files=5000
 let g:unite_source_file_mru_limit=200
-let g:unite_source_rec_async_command='ag --nocolor --nogroup --hidden -g ""'
+let g:unite_source_rec_async_command =
+      \ ['ag', '--follow', '--nocolor', '--nogroup',
+      \  '--hidden', '-g', '']
 let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts = '-s -H --nocolor --nogroup --column'
 let g:unite_source_grep_recursive_opt = ''
 let g:unite_prompt='❯ '
 
-nnoremap <C-f> :<C-u>Unite -buffer-name=files file_mru file_rec/async:!<CR>
+" nnoremap <C-f> :<C-u>Unite -buffer-name=files file_mru file_rec/async:!<CR>
 nnoremap <leader>f :<C-u>Unite -no-split -no-resize -direction=topleft -buffer-name=mru file_mru<CR>
 nnoremap <leader>y :<C-u>Unite -no-start-insert history/yank<CR>
 nnoremap <leader>/ :<C-u>Unite grep:.<CR>
@@ -233,6 +240,15 @@ function! s:unite_keymaps()
   nmap <buffer> <Esc>   <Plug>(unite_exit)
   imap <buffer> <Esc>   <Plug>(unite_exit)
 endfunction
+
+
+""""""""""""""""""""""""""""""
+" FZF
+""""""""""""""""""""""""""""""
+let g:fzf_layout = { 'down': '40%' }
+
+nnoremap <silent> <C-f> :GitFiles<CR>
+" nnoremap <silent> <C-f> :Files<CR>
 
 
 """"""""""""""""""""""""""""""
@@ -270,12 +286,14 @@ let g:airline#extensions#default#section_truncate_width = {
   \ 'warning': 50,
   \ }
 
+let g:airline#extensions#tagbar#enabled = 0
+
 
 """"""""""""""""""""""""""""""
 " vim-easymotion
 """"""""""""""""""""""""""""""
 map s <Plug>(easymotion-s)
-map <leader>ss <Plug>(easymotion-s2)
+map <leader>s <Plug>(easymotion-s2)
 map <leader>_ <Plug>(easymotion-prefix)
 
 " match lower & upper case
@@ -389,4 +407,45 @@ let g:tmuxline_separators = {
 """"""""""""""""""""""""""""""
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
+
+""""""""""""""""""""""""""""""
+" Neomake
+""""""""""""""""""""""""""""""
+autocmd! BufWritePost * Neomake
+let g:neomake_open_list = 2
+let g:neomake_list_height = 7
+
+let g:neomake_stylelint = {
+  \ 'errorformat': '%+P%f, %W%l:%c%*\s%m, %-Q',
+  \ }
+
+let g:neomake_warning_sign = {
+  \ 'text': 'W',
+  \ 'texthl': 'GitGutterChangeDefault',
+  \ }
+
+let g:neomake_error_sign = {
+  \ 'text': 'E',
+  \ 'texthl': 'GitGutterDeleteDefault',
+  \ }
+
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_json_enabled_makers = ['jsonlint']
+let g:neomake_css_stylelint_maker = neomake_stylelint
+let g:neomake_scss_stylelint_maker = neomake_stylelint
+let g:neomake_css_enabled_makers = ['stylelint']
+let g:neomake_scss_enabled_makers = ['stylelint']
+
+
+""""""""""""""""""""""""""""""
+" Tagbar
+""""""""""""""""""""""""""""""
+nmap <leader>t :TagbarToggle<CR>
+let g:tagbar_iconchars = ['▸', '▾']
+
+
+""""""""""""""""""""""""""""""
+" EditorConfig
+""""""""""""""""""""""""""""""
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 

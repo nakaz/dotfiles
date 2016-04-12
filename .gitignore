@@ -2,3 +2,8 @@
 .netrwhist
 vim/vim.symlink/spell/
 **/.DS_Store
+
+# Ranger
+config/ranger/bookmarks
+config/ranger/history
+config/ranger/tagged
