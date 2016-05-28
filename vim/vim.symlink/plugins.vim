@@ -100,7 +100,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'suan/vim-instant-markdown'
 
 " Jade syntax highlighting
-Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
+Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
 
 " Javascript indentation and syntax support
 Plug 'pangloss/vim-javascript'
