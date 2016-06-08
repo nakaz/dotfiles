@@ -153,6 +153,9 @@ Plug 'majutsushi/tagbar'
 " Provides additional text objects
 Plug 'wellle/targets.vim'
 
+" Includes WakaTime to track usage
+Plug 'wakatime/vim-wakatime'
+
 call plug#end()
 
 
