@@ -20,6 +20,9 @@ function colours() {
 }
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+# export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:/usr/local/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Set colors to match iTerm2 Terminal Colors
@@ -44,7 +47,8 @@ alias prj="cd ~/projects"
 alias dl="cd ~/devleague"
 alias jrd="cd ~/jrdevleague"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# Load rbenv
+eval "$(rbenv init -)"
 
 # Load fzf
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g "" -u'
