@@ -8,7 +8,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
 " Unite. The interface to rule almost everything
-Plug 'Shougo/unite.vim'
+" Plug 'Shougo/unite.vim'
 
 " Most Recently Used
 Plug 'Shougo/neomru.vim'
@@ -19,7 +19,7 @@ Plug 'junegunn/fzf.vim'
 
 if has('nvim')
   " Asynchronous completion for neovim
-  Plug 'Shougo/deoplete.nvim'
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   " Tern-based JavaScript editing support
   Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 else
@@ -146,7 +146,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'jiangmiao/auto-pairs'
 
 " Tern-based JavaScript editing support
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
+" Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 
 " React JSX syntax highlighting & indenting
 Plug 'mxw/vim-jsx'
@@ -165,7 +165,10 @@ Plug 'wakatime/vim-wakatime'
 
 if !has ('nvim')
   " Haxe plugin
-  Plug 'jdonaldson/vaxe', { 'for': 'hx' }
+  Plug 'jdonaldson/vaxe'
+" elseif has ('nvim')
+  " Haxe Plugin for NeoVim
+  " Plug 'jdonaldson/neovaxe'
 endif
 
 call plug#end()
@@ -342,14 +345,44 @@ map <leader>gg :GitGutterToggle<CR>
 map <leader>gs :Gstatus<CR>
 set diffopt+=vertical
 
+""""""""""""""""""""""""""""""
+" Deoplete
+""""""""""""""""""""""""""""""
+if has('nvim')
+  " Enable deoplete.
+  let g:deoplete#enable_at_startup = 1
+
+  if !exists('g:deoplete#omni#input_patterns')
+    let g:deoplete#omni#input_patterns = {}
+  endif
+
+  augroup omnifuncs
+    autocmd!
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+    autocmd FileType javascript setlocal omnifunc=tern#Complete
+  augroup end
+
+  let g:tern_request_timeout = 1
+  let g:tern_show_argument_hints = 'on_hold'
+  let g:tern_show_signature_in_pum = 0
+
+  " Automatically close preview window after autocompletion
+  autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
+endif
+
 
 """"""""""""""""""""""""""""""
 " Ultisnips
 """"""""""""""""""""""""""""""
 " Trigger configuration
-let g:UltiSnipsExpandTrigger="<C-Space>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+" let g:UltiSnipsExpandTrigger="<C-l>"
+
+let g:UltiSnipsExpandTrigger="<C-@>"
+" let g:UltiSnipsJumpForwardTrigger="<Tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
 
 """"""""""""""""""""""""""""""
@@ -474,4 +507,3 @@ let g:tagbar_iconchars = ['▸', '▾']
 " EditorConfig
 """"""""""""""""""""""""""""""
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-
