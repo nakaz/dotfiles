@@ -1,3 +1,6 @@
+# reload zsh config
+alias reload!='source ~/.zshrc'
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/nakaz/.oh-my-zsh
 
@@ -46,6 +49,15 @@ alias pumpitup="osascript -e 'set volume 7'"
 # Show/Hide finder hidden files
 alias showHidden="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app"
 alias hideHidden="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app"
+
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Kill all the tabs in Chrome to free up memory
+alias killchrome="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 
 alias f='ranger'
 
