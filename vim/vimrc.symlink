@@ -5,12 +5,10 @@ set nocompatible
 let mapleader = "\<Space>"
 let g:mapleader = "\<Space>"
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " => LOAD PLUGINS
 """"""""""""""""""""""""""""""""""""""""""""""""""
 source ~/.vim/plugins.vim
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " => BASIC SETTINGS
@@ -331,6 +329,10 @@ map <leader>s? z=
 " Exit insert mode with `jk`
 inoremap jk <ESC>
 
+" For Ultisnips
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-@> <C-Space>
+
 " Fast saving
 nmap <leader>w :w!<cr>
 
@@ -520,4 +522,3 @@ call NERDTreeHighlightFile('svg', 178, 'none', '#CDA109', '#CDA109')
 call NERDTreeHighlightFile('gif', 36, 'none', '#15A274', '#15A274')
 call NERDTreeHighlightFile('jpg', 36, 'none', '#15A274', '#15A274')
 call NERDTreeHighlightFile('png', 36, 'none', '#15A274', '#15A274')
-
