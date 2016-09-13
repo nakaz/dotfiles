@@ -20,6 +20,7 @@ function colours() {
 }
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+# export PATH="/user/local/bin:$Path"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Set colors to match iTerm2 Terminal Colors
@@ -46,10 +47,13 @@ alias jrd="cd ~/jrdevleague"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-# Load fzf
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g "" -u'
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# # Load fzf
+# export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g "" -u'
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Load fzf
+export FZF_DEFAULT_COMMAND='ag -g ""'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 function 7zip() {
   tar cf - "$@" | 7za a -si "$@".tar.7z;
