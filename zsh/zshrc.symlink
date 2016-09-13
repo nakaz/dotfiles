@@ -31,9 +31,15 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export TERM=xterm-256color
 
 # Switch vim to macvim
-alias vim='mvim -v'
-
+alias vim="nvim"
 alias ":q"="exit"
+
+# tmux aliases
+alias ta='tmux attach'
+alias tls='tmux ls'
+alias tat='tmux attach -t'
+alias tns='tmux new-session -s'
+
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 7'"
 
