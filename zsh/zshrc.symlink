@@ -1,5 +1,9 @@
 # reload zsh config
 alias reload!='source ~/.zshrc'
+#
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/oceanic-next-shell/oceanic-next.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/nakaz/.oh-my-zsh
