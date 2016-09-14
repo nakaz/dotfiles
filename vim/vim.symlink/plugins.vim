@@ -504,6 +504,14 @@ let g:neomake_scss_enabled_makers = ['stylelint']
 " let g:neomake_javascript_eslint_exe = './node_modules/.bin/eslint'
 " let g:neomake_css_stylelint_exe = './node_modules/.bin/stylelint'
 
+" Prefer local project eslint over global
+let g:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
+let g:neomake_javascript_eslint_exe = substitute(g:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+
+" Prefer local project stylelint over global
+let g:stylelint_path = system('PATH=$(npm bin):$PATH && which stylelint')
+let g:neomake_css_stylelint_exe = substitute(g:stylelint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+
 
 """"""""""""""""""""""""""""""
 " Tagbar
