@@ -32,3 +32,13 @@ cd nerd-fonts
 
 #### Fuzzy Files
 `brew install fzf`
+
+#### Files to remmber to download
+- `npm install -g eslint`
+- `npm install -g stylelint`
+
+### Todo
+- Automate `brew` installs
+- Automate global `npm` installs
+- Segegrate plugs and configs in `rc` files.
+
