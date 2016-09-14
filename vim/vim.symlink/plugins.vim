@@ -475,7 +475,13 @@ let g:neomake_open_list = 2
 let g:neomake_list_height = 7
 
 let g:neomake_stylelint = {
-  \ 'errorformat': '%+P%f, %W%l:%c%*\s%m, %-Q',
+  \ 'args': [
+  \   '--config', '~/.stylelintrc'
+  \ ],
+  \ 'errorformat':
+  \ '%+P%f,' .
+  \ '%*\s%l:%c  %t  %m,' .
+  \ '%-Q'
   \ }
 
 let g:neomake_warning_sign = {
@@ -494,6 +500,9 @@ let g:neomake_css_stylelint_maker = neomake_stylelint
 let g:neomake_scss_stylelint_maker = neomake_stylelint
 let g:neomake_css_enabled_makers = ['stylelint']
 let g:neomake_scss_enabled_makers = ['stylelint']
+
+" let g:neomake_javascript_eslint_exe = './node_modules/.bin/eslint'
+" let g:neomake_css_stylelint_exe = './node_modules/.bin/stylelint'
 
 
 """"""""""""""""""""""""""""""
