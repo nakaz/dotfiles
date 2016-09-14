@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<root>
+
+  <devicevendordef>
+    <vendorname>Internal</vendorname>
+    <vendorid>0x05ac</vendorid>
+  </devicevendordef>
+
+  <devicevendordef>
+    <vendorname>Poker</vendorname>
+    <vendorid>0x0f39</vendorid>
+  </devicevendordef>
+
+  <item>
+    <name>Change f19 (CAPS LOCK) key to FN</name>
+    <appendix>(CAPS LOCK is F19 via Seil)</appendix>
+    <identifier>private.f19_hack</identifier>
+    <block>
+      <device_only>
+        DeviceVendor::Internal,
+        DeviceVendor::Poker
+      </device_only>
+      <autogen>__KeyToKey__ KeyCode::F19, KeyCode::FN</autogen>
+    </block>
+  </item>
+
+  <item>
+    <name>Change F19 (CAPS KEY) to CTRL</name>
+    <appendix>(Become a VIM Master)</appendix>
+    <identifier>private.CTRL_hack</identifier>
+    <block>
+      <device_only>
+        DeviceVendor::Internal,
+        DeviceVendor::Poker
+      </device_only>
+      <autogen>__KeyToKey__ KeyCode::F19, KeyCode::CONTROL_L</autogen>
+    </block>
+  </item>
+
+  <item>
+    <name>CTRL + CMD is FN</name>
+    <appendix>(Become a VIM Master + Code Happy functionality)</appendix>
+    <identifier>private.CTRLCMD_hack</identifier>
+    <block>
+      <device_only>
+        DeviceVendor::Internal,
+        DeviceVendor::Poker
+      </device_only>
+      <autogen>__KeyToKey__ KeyCode::CONTROL_L, ModifierFlag::COMMAND_L, KeyCode::FN</autogen>
+    </block>
+  </item>
+
+  <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_SHELL_switchprofile_VIMLORD</name>
+      <url type="shell">
+          <![CDATA[    /Applications/Karabiner.app/Contents/Library/bin/karabiner select 1    ]]>
+      </url>
+  </vkopenurldef>
+
+  <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_SHELL_switchprofile_DEFAULT</name>
+      <url type="shell">
+          <![CDATA[    /Applications/Karabiner.app/Contents/Library/bin/karabiner select 0    ]]>
+      </url>
+  </vkopenurldef>
+
+  <item>
+      <name>Switch Profile VIM Lord</name>
+      <identifier>private.switch1</identifier>
+      <autogen>
+          __KeyToKey__
+          KeyCode::BACKSLASH, ModifierFlag::FN,
+          KeyCode::VK_OPEN_URL_SHELL_switchprofile_VIMLORD
+      </autogen>
+  </item>
+
+  <item>
+      <name>Switch Profile to Code Happy</name>
+      <identifier>private.switch0</identifier>
+      <autogen>
+          __KeyToKey__
+          KeyCode::BACKSLASH, ModifierFlag::CONTROL_L,
+          KeyCode::VK_OPEN_URL_SHELL_switchprofile_DEFAULT
+      </autogen>
+  </item>
+
+</root>
