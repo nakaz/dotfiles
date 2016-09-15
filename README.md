@@ -3,22 +3,18 @@
 
 ![Screenshot](http://i.imgur.com/Fv4Dqdf.png)
 
-
 ## Installation
 ``` bash
 git clone https://github.com/epilande/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 source ./install/link.sh
+source ./install/brew.sh
+source ./install/brew-cask.sh
 ```
 
 ## tmux
 - `brew install tmux`
 - `brew install reattach-to-user-namespace`
-
-## vim/nvim
-#### Install plugins
-- Open vim OR nvim
-- In command mode run `:PlugInstall`
 
 #### Nerd fonts for vim-devicons
 ``` bash
@@ -27,18 +23,19 @@ cd nerd-fonts
 ./install.sh
 ```
 
-#### Instant markdown preview
-`npm -g install instant-markdown-d`
+### Neovim
+```bash
+# nvm
+:PlugInstall
+```
 
-#### Fuzzy Files
-`brew install fzf`
-
-#### Files to remmber to download
-- `npm install -g eslint`
-- `npm install -g stylelint`
+#### Node
+```bash
+npm -g install instant-markdown-d eslint jsonlint stylelint
+```
 
 ### Todo
-- Automate `brew` installs
-- Automate global `npm` installs
-- Segegrate plugs and configs in `rc` files.
+Shoutout to my man [@epilande](https://github.com/epilande) -- and the *real*
+[.dotfiles](https://github.com/epilande/dotfiles) -- from for all the support
+and patience!
 
