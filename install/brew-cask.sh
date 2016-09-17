@@ -5,6 +5,7 @@
 
 brew tap caskroom/cask
 
+brew cask install alfred
 brew cask install spectacle
 brew cask install iterm2
 brew cask install tower
@@ -19,6 +20,8 @@ brew cask install seil
 brew cask install sequel-pro
 brew cask install spotify
 brew cask install hipchat
+brew cask install lumen
+brew cask install caffeine
 
 # https://github.com/sindresorhus/quick-look-plugins
 # brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
