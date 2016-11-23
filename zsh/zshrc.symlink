@@ -10,7 +10,7 @@ export ZSH=/Users/nakaz/.oh-my-zsh
 
 ZSH_THEME="erp"
 
-plugins=(osx git npm brew github node sublime atom xcode)
+plugins=(osx git npm brew github node ruby sublime atom xcode docker)
 
 export EDITOR='nvim'
 
@@ -30,7 +30,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export PATH="$HOME/.rbenv/bin:$PATH"
 
 # For use with rbenv
-# export PATH="$HOME/.rbenv/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:/usr/local/bin:$PATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -50,6 +50,13 @@ alias tns='tmux new-session -s'
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 7'"
 
+# NPM
+alias ni="npm install"
+alias nis="npm install --save"
+alias nisd="npm install --save-dev"
+alias ns="npm start"
+alias nrd="npm run dev"
+
 # Show/Hide finder hidden files
 alias showHidden="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app"
 alias hideHidden="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app"
@@ -67,6 +74,9 @@ alias f='ranger'
 
 source $ZSH/oh-my-zsh.sh
 
+# Docker
+alias d="docker"
+
 export TERM=xterm-256color
 
 alias zshconfig="subl ~/.zshrc"
@@ -76,11 +86,11 @@ alias dl="cd ~/devleague"
 alias jrd="cd ~/jrdevleague"
 
 # Load rbenv
-# eval "$(rbenv init -)"
+eval "$(rbenv init -)"
 
 # # Load fzf
 # export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g "" -u'
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#c [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Load fzf
 export FZF_DEFAULT_COMMAND='ag -g ""'
