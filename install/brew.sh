@@ -19,6 +19,8 @@ echo "=============================="
 brew install wget
 brew install tree
 brew install fzf
+brew install git
+brew install hub
 brew install tmux
 brew install neovim/neovim/neovim
 brew install zsh
