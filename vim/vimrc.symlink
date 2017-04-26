@@ -40,6 +40,10 @@ map <leader>e :e! ~/.vimrc<cr>
 " => COLORS AND FONTS
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
+" if(has("termguicolors"))
+"   set termguicolors
+" endif
+
 " Enable syntax highlighting
 syntax enable
 
@@ -48,11 +52,13 @@ set background=dark
 " Theme, Colorscheme, & Font
 if has("gui_running")
   colorscheme Tomorrow-Night
+  set termguicolors
   set guifont=Monaco:h14
   set linespace=2
   set noantialias
 else
   try
+    set termguicolors
     colorscheme OceanicNext
   catch
   endtry
@@ -375,7 +381,7 @@ map <leader>r :e<cr>
 
 " Quick Open Notes
 " Directory to notes folder
-let g:notes_folder = '~/Desktop/Notes/'
+let g:notes_folder = '~/Documents/note/'
 " Project specific notes
 let g:notes = g:notes_folder . fnamemodify(getcwd(), ':t') . '.md'
 let g:note_size = 15
@@ -508,17 +514,17 @@ function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
   exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
-call NERDTreeHighlightFile('html', 202, 'none', '#FC4709', '#FC4709')
-call NERDTreeHighlightFile('hbs', 202, 'none', '#FC4709', '#FC4709')
-call NERDTreeHighlightFile('jade', 149, 'none', '#A0D24D', '#A0D24D')
-call NERDTreeHighlightFile('json', 223, 'none', '#FECEA0', '#FECEA0')
-call NERDTreeHighlightFile('scss', 44, 'none', '#1AD0CE', '#1AD0CE')
-call NERDTreeHighlightFile('css', 44, 'none', '#1AD0CE', '#1AD0CE')
-call NERDTreeHighlightFile('js', 226, 'none', '#FFFF0D', '#FFFF0D')
-call NERDTreeHighlightFile('rb', 197, 'none', '#E53378', '#E53378')
-call NERDTreeHighlightFile('md', 208, 'none', '#FD720A', '#FD720A')
-call NERDTreeHighlightFile('php', 140, 'none', '#9E6FCD', '#9E6FCD')
-call NERDTreeHighlightFile('svg', 178, 'none', '#CDA109', '#CDA109')
-call NERDTreeHighlightFile('gif', 36, 'none', '#15A274', '#15A274')
-call NERDTreeHighlightFile('jpg', 36, 'none', '#15A274', '#15A274')
-call NERDTreeHighlightFile('png', 36, 'none', '#15A274', '#15A274')
+call NERDTreeHighlightFile('html', 202, 'none', '#FC4709', 'none')
+call NERDTreeHighlightFile('hbs', 202, 'none', '#FC4709', 'none')
+call NERDTreeHighlightFile('jade', 149, 'none', '#A0D24D', 'none')
+call NERDTreeHighlightFile('json', 223, 'none', '#FECEA0', 'none')
+call NERDTreeHighlightFile('scss', 44, 'none', '#1AD0CE', 'none')
+call NERDTreeHighlightFile('css', 44, 'none', '#1AD0CE', 'none')
+call NERDTreeHighlightFile('js', 226, 'none', '#FFFF0D', 'none')
+call NERDTreeHighlightFile('rb', 197, 'none', '#E53378', 'none')
+call NERDTreeHighlightFile('md', 208, 'none', '#FD720A', 'none')
+call NERDTreeHighlightFile('php', 140, 'none', '#9E6FCD', 'none')
+call NERDTreeHighlightFile('svg', 178, 'none', '#CDA109', 'none')
+call NERDTreeHighlightFile('gif', 36, 'none', '#15A274', 'none')
+call NERDTreeHighlightFile('jpg', 36, 'none', '#15A274', 'none')
+call NERDTreeHighlightFile('png', 36, 'none', '#15A274', 'none')
