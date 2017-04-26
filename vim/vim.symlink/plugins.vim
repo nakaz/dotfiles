@@ -109,6 +109,9 @@ Plug 'suan/vim-instant-markdown'
 " Jade syntax highlighting
 Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
 
+" Mustache/Handlebars syntax highlighting
+Plug 'mustache/vim-mustache-handlebars'
+
 " Javascript indentation and syntax support
 Plug 'pangloss/vim-javascript'
 
@@ -527,3 +530,9 @@ let g:tagbar_iconchars = ['▸', '▾']
 " EditorConfig
 """"""""""""""""""""""""""""""
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+"
+""""""""""""""""""""""""""""""
+" Mustache/Handlebars
+""""""""""""""""""""""""""""""
+let g:mustache_operators = 0
+let g:mustache_abbreviations = 0
