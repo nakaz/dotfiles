@@ -26,7 +26,9 @@ function colours() {
   done
 }
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export GOPATH="/usr/local/go/bin"
+export MAINPATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$MAINPATH:$GOPATH"
 # export PATH="$HOME/.rbenv/bin:$PATH"
 
 # For use with rbenv
