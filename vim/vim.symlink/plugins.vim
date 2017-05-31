@@ -386,7 +386,7 @@ endif
 " Trigger configuration
 " let g:UltiSnipsExpandTrigger="<C-l>"
 
-let g:UltiSnipsExpandTrigger="<C-@>"
+let g:UltiSnipsExpandTrigger="<C-space>"
 " let g:UltiSnipsJumpForwardTrigger="<Tab>"
 " let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
