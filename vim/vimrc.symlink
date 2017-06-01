@@ -530,3 +530,5 @@ call NERDTreeHighlightFile('svg', 178, 'none', '#CDA109', 'none')
 call NERDTreeHighlightFile('gif', 36, 'none', '#15A274', 'none')
 call NERDTreeHighlightFile('jpg', 36, 'none', '#15A274', 'none')
 call NERDTreeHighlightFile('png', 36, 'none', '#15A274', 'none')
+
+hi ALEErrorSign ctermfg=203 ctermbg=237 guifg=#ec5f67 guibg=#343d46
