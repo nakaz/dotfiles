@@ -40,7 +40,7 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " Asynchronous linter
-Plug 'benekastah/neomake'
+" Plug 'benekastah/neomake'
 
 " Cache file automatically
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -162,6 +162,9 @@ Plug 'editorconfig/editorconfig-vim'
 
 " Class outline viewer
 Plug 'majutsushi/tagbar'
+
+" Asynchronous Linter
+Plug 'w0rp/ale'
 
 " Provides additional text objects
 Plug 'wellle/targets.vim'
@@ -472,51 +475,66 @@ let g:tmuxline_separators = {
 """"""""""""""""""""""""""""""
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
+""""""""""""""""""""""""""""""
+" vim-jsx
+""""""""""""""""""""""""""""""
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '🚧'
 
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+
+let g:ale_echo_msg_error_str = 'FIX YO SHIT'
+let g:ale_echo_msg_warning_str = 'WARNING'
+let g:ale_echo_msg_format = '[%linter%] %s.. %severity%'
+
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\ }
 """"""""""""""""""""""""""""""
 " Neomake
 """"""""""""""""""""""""""""""
-autocmd! BufWritePost * Neomake
-let g:neomake_open_list = 2
-let g:neomake_list_height = 7
+" autocmd! BufWritePost * Neomake
+" let g:neomake_open_list = 2
+" let g:neomake_list_height = 7
 
-let g:neomake_stylelint = {
-  \ 'args': [
-  \   '--config', '~/.stylelintrc'
-  \ ],
-  \ 'errorformat':
-  \ '%+P%f,' .
-  \ '%*\s%l:%c  %t  %m,' .
-  \ '%-Q'
-  \ }
+" let g:neomake_stylelint = {
+"   \ 'args': [
+"   \   '--config', '~/.stylelintrc'
+"   \ ],
+"   \ 'errorformat':
+"   \ '%+P%f,' .
+"   \ '%*\s%l:%c  %t  %m,' .
+"   \ '%-Q'
+"   \ }
 
-let g:neomake_warning_sign = {
-  \ 'text': 'W',
-  \ 'texthl': 'GitGutterChangeDefault',
-  \ }
+" let g:neomake_warning_sign = {
+"   \ 'text': 'W',
+"   \ 'texthl': 'GitGutterChangeDefault',
+"   \ }
 
-let g:neomake_error_sign = {
-  \ 'text': 'E',
-  \ 'texthl': 'GitGutterDeleteDefault',
-  \ }
+" let g:neomake_error_sign = {
+"   \ 'text': 'E',
+"   \ 'texthl': 'GitGutterDeleteDefault',
+"   \ }
 
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_json_enabled_makers = ['jsonlint']
-let g:neomake_css_stylelint_maker = neomake_stylelint
-let g:neomake_scss_stylelint_maker = neomake_stylelint
-let g:neomake_css_enabled_makers = ['stylelint']
-let g:neomake_scss_enabled_makers = ['stylelint']
+" let g:neomake_javascript_enabled_makers = ['eslint']
+" let g:neomake_json_enabled_makers = ['jsonlint']
+" let g:neomake_css_stylelint_maker = neomake_stylelint
+" let g:neomake_scss_stylelint_maker = neomake_stylelint
+" let g:neomake_css_enabled_makers = ['stylelint']
+" let g:neomake_scss_enabled_makers = ['stylelint']
 
 " let g:neomake_javascript_eslint_exe = './node_modules/.bin/eslint'
 " let g:neomake_css_stylelint_exe = './node_modules/.bin/stylelint'
 
 " Prefer local project eslint over global
-let g:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
-let g:neomake_javascript_eslint_exe = substitute(g:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+" let g:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
+" let g:neomake_javascript_eslint_exe = substitute(g:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 
 " Prefer local project stylelint over global
-let g:stylelint_path = system('PATH=$(npm bin):$PATH && which stylelint')
-let g:neomake_css_stylelint_exe = substitute(g:stylelint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+" let g:stylelint_path = system('PATH=$(npm bin):$PATH && which stylelint')
+" let g:neomake_css_stylelint_exe = substitute(g:stylelint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 
 
 """"""""""""""""""""""""""""""
