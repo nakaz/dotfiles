@@ -479,7 +479,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " vim-jsx
 """"""""""""""""""""""""""""""
 let g:ale_sign_error = 'X'
-let g:ale_sign_warning = '⚠️'
+let g:ale_sign_warning = '!'
 
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
