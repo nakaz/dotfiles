@@ -478,18 +478,18 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 """"""""""""""""""""""""""""""
 " vim-jsx
 """"""""""""""""""""""""""""""
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '🚧'
+let g:ale_sign_error = 'X'
+let g:ale_sign_warning = '⚠️'
 
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 
-let g:ale_echo_msg_error_str = 'FIX YO SHIT'
+let g:ale_echo_msg_error_str = 'ERROR'
 let g:ale_echo_msg_warning_str = 'WARNING'
-let g:ale_echo_msg_format = '[%linter%] %s.. %severity%'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint', 'jshint'],
 \ }
 """"""""""""""""""""""""""""""
 " Neomake
