@@ -170,7 +170,7 @@ Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 
 " Includes WakaTime to track usage
-Plug 'wakatime/vim-wakatime'
+" Plug 'wakatime/vim-wakatime'
 
 if !has ('nvim')
   " Haxe plugin
