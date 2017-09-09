@@ -457,7 +457,7 @@ let g:tmuxline_preset = {
   \"c"    : "",
   \"win"  : "#I  #W",
   \"cwin" : "#I  #W",
-  \"x"    : ["♫ #(osascript ~/.dotfiles/applescripts/itunes.scpt)"],
+  \"x"    : ["♫ #(osascript ~/.dotfiles/applescripts/spotify.scpt)"],
   \"y"    : ["%a", "%b %d", "%R"],
   \"z"    : "#h",
   \'options' : {'status-justify' : 'left'}}
