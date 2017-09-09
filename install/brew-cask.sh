@@ -14,15 +14,17 @@ brew cask install karabiner
 brew cask install google-chrome
 brew cask install firefox
 brew cask install atom
+brew cask install sublime-text
 brew cask install vlc
 brew cask install istat-menus
 brew cask install seil
 brew cask install sequel-pro
 brew cask install spotify
-brew cask install hipchat
-brew cask install lumen
-brew cask install caffeine
+brew cask install sketch
 brew cask install docker
+brew cask install keybase
+brew cask install gpgtools
+brew cask install dash
 
 # https://github.com/sindresorhus/quick-look-plugins
 # brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
