@@ -10,14 +10,13 @@ brew cask install spectacle
 brew cask install iterm2
 brew cask install tower
 brew cask install slack
-brew cask install karabiner
+brew cask install karabiner-elements
 brew cask install google-chrome
 brew cask install firefox
 brew cask install atom
 brew cask install sublime-text
 brew cask install vlc
 brew cask install istat-menus
-brew cask install seil
 brew cask install sequel-pro
 brew cask install spotify
 brew cask install sketch
