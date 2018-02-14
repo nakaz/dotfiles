@@ -127,6 +127,9 @@ bind f switchc -t Finder
 # switch back to last session
 bind b switchc -l
 
+# enable true color support and italics
+# set -g default-terminal "xterm-256color-italic"
+# set -ga terminal-overrides ",xterm-256color-italic:Tc"
 
 ##############################
 # => PLUGINS

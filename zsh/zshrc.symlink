@@ -89,6 +89,7 @@ alias mongo-up="brew services start mongodb"
 alias mongo-down="brew services stop mongodb"
 
 export TERM=xterm-256color
+# export TERM=xterm-256color-italics
 
 alias zshconfig="subl ~/.zshrc"
 alias ohmyzsh="subl ~/.oh-my-zsh"

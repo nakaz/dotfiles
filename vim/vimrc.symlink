@@ -381,7 +381,7 @@ map <leader>r :e<cr>
 
 " Quick Open Notes
 " Directory to notes folder
-let g:notes_folder = '~/Documents/note/'
+let g:notes_folder = '~/Documents/notes/projects/'
 " Project specific notes
 let g:notes = g:notes_folder . fnamemodify(getcwd(), ':t') . '.md'
 let g:note_size = 15
@@ -533,3 +533,8 @@ call NERDTreeHighlightFile('png', 36, 'none', '#15A274', 'none')
 
 hi ALEErrorSign ctermfg=203 ctermbg=237 guifg=#ec5f67 guibg=#343d46
 hi ALEWarningSign ctermfg=220 ctermbg=237 guifg=#ffd700 guibg=#343d46
+
+" For Operator Mono Font
+" hi Comment gui=italic cterm=italic
+" hi htmlArg gui=italic cterm=italic
+" hi Type gui=italic cterm=italic
