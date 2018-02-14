@@ -85,16 +85,16 @@ alias pg-start="brew services start postgresql"
 alias pg-stop="brew services stop postgresql"
 
 # MongoDB
-alias mongodb-start="brew services start mongodb"
-alias mongodb-stop="brew services stop mongodb"
+alias mongo-up="brew services start mongodb"
+alias mongo-down="brew services stop mongodb"
 
 export TERM=xterm-256color
 
 alias zshconfig="subl ~/.zshrc"
 alias ohmyzsh="subl ~/.oh-my-zsh"
 alias prj="cd ~/projects"
-alias dl="cd ~/devleague"
-alias jrd="cd ~/jrdevleague"
+alias wm="cd ~/code/webmocha"
+alias hpe="cd ~/code/hpe"
 
 # Load rbenv
 # eval "$(rbenv init -)"
