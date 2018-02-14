@@ -361,6 +361,9 @@ if has('nvim')
   " Enable deoplete.
   let g:deoplete#enable_at_startup = 1
 
+  " Use buffer path instead of the current directory
+  let g:deoplete#file#enable_buffer_path = 1
+
   if !exists('g:deoplete#omni#input_patterns')
     let g:deoplete#omni#input_patterns = {}
   endif
@@ -476,7 +479,7 @@ let g:tmuxline_separators = {
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 """"""""""""""""""""""""""""""
-" vim-jsx
+" ale
 """"""""""""""""""""""""""""""
 let g:ale_sign_error = 'X'
 let g:ale_sign_warning = '!'
@@ -489,8 +492,9 @@ let g:ale_echo_msg_warning_str = 'WARNING'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 let g:ale_linters = {
-\   'javascript': ['eslint', 'jshint'],
+\   'javascript': ['eslint']
 \ }
+
 """"""""""""""""""""""""""""""
 " Neomake
 """"""""""""""""""""""""""""""
