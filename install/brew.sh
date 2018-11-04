@@ -16,17 +16,21 @@ brew upgrade
 echo -e "\n\nInstalling homebrew packages..."
 echo "=============================="
 
-brew install wget
-brew install tree
+brew install awscli
 brew install fzf
 brew install git
+brew install go
 brew install hub
-brew install tmux
+brew install kubernetes-cli
+brew install kubernetesh-helm
 brew install neovim/neovim/neovim
-brew install zsh
 brew install nvm
-brew install ranger
 brew install pianobar
+brew install ranger
 brew install reattach-to-user-namespace
+brew install tree
+brew install tmux
+brew install wget
+brew install zsh
 
 brew cleanup
