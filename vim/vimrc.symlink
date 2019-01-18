@@ -45,7 +45,7 @@ map <leader>e :e! ~/.vimrc<cr>
 " endif
 
 " Enable syntax highlighting
-syntax enable
+syntax on
 
 set background=dark
 
