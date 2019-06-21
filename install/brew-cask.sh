@@ -5,6 +5,7 @@
 
 brew tap caskroom/cask
 
+brew cask install 1password
 brew cask install alfred
 brew cask install aerial
 brew cask install bettertouchtool
@@ -18,6 +19,7 @@ brew cask install iterm2
 brew cask install karabiner-elements
 brew cask install kap
 brew cask install keybase
+brew cask install licecap
 brew cask install postman
 brew cask install slack
 brew cask install spotify
