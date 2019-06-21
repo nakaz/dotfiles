@@ -169,6 +169,15 @@ Plug 'w0rp/ale'
 " Provides additional text objects
 Plug 'wellle/targets.vim'
 
+" GraphQL fs, syntax, and indentation support
+Plug 'jparise/vim-graphql'
+
+" GoLang highlighting, indentation, and functional support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" Typescript syntax highlighting
+Plug 'leafgarland/typescript-vim'
+
 " Includes WakaTime to track usage
 " Plug 'wakatime/vim-wakatime'
 
@@ -303,6 +312,7 @@ map <C-e> :NERDTreeToggle<CR>
 """"""""""""""""""""""""""""""
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key="\<C-s>"
+let g:multi_cursor_quit_key="<Esc>"
 
 
 """"""""""""""""""""""""""""""
@@ -559,3 +569,8 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 """"""""""""""""""""""""""""""
 let g:mustache_operators = 0
 let g:mustache_abbreviations = 0
+
+""""""""""""""""""""""""""""""
+" Typescript
+""""""""""""""""""""""""""""""
+let g:typescript_indent_disable = 0
