@@ -9,8 +9,9 @@ BASE16_SHELL="$HOME/.config/oceanic-next-shell/oceanic-next.dark.sh"
 export ZSH=/Users/nakaz/.oh-my-zsh
 
 ZSH_THEME="erp"
+DISABLE_AUTO_TITLE="true"
 
-plugins=(osx git npm brew github node ruby sublime atom xcode docker)
+plugins=(osx git npm brew github node ruby xcode docker)
 
 export EDITOR='nvim'
 
@@ -27,9 +28,11 @@ function colours() {
 }
 
 # export GOPATH="/usr/local/go/bin"
+export HOME_BINARIES="$HOME/bin";
 export GOPATH="$HOME/code/go"
 export MAINPATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export PATH="$MAINPATH:$GOPATH"
+export MINISHIFT_PATH="/Users/nakaz/.minishift/cache/oc/v3.11.0/darwin"
+export PATH="$MAINPATH:$GOPATH:$MINISHIFT_PATH:$HOME_BINARIES"
 # export PATH="$HOME/.rbenv/bin:$PATH"
 
 # For use with rbenv
@@ -97,7 +100,7 @@ alias prj="cd ~/projects"
 alias wm="cd ~/code/webmocha"
 alias hpe="cd ~/code/hpe"
 alias hpego='cd ~/code/go/src/github.hpe.com'
-alias gocode="cd ~/code/go"
+alias gode="cd ~/code/go/src/github.com/nakaz"
 
 # Load rbenv
 # eval "$(rbenv init -)"
