@@ -32,7 +32,7 @@ export HOME_BINARIES="$HOME/bin";
 export GOPATH="$HOME/code/go"
 export MAINPATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export MINISHIFT_PATH="/Users/nakaz/.minishift/cache/oc/v3.11.0/darwin"
-export PATH="$MAINPATH:$GOPATH:$MINISHIFT_PATH:$HOME_BINARIES"
+export PATH="$MAINPATH:$GOPATH/bin:$MINISHIFT_PATH:$HOME_BINARIES"
 # export PATH="$HOME/.rbenv/bin:$PATH"
 
 # For use with rbenv
