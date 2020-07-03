@@ -467,7 +467,6 @@ let g:org_todo_keywords = ['TODO', 'WAITING', '|', 'DONE']
 """"""""""""""""""""""""""""""
 let g:tmuxline_preset = {
   \"a"    : "#S",
-  \"b"    : "#(ifconfig en0 | grep 'inet ' | awk '{print $2}')",
   \"c"    : "",
   \"win"  : "#I  #W",
   \"cwin" : "#I  #W",
