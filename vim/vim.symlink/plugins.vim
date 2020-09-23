@@ -301,13 +301,6 @@ if has('nvim')
   " Enable deoplete.
   let g:deoplete#enable_at_startup = 1
 
-  " Use buffer path instead of the current directory
-  let g:deoplete#file#enable_buffer_path = 1
-
-  if !exists('g:deoplete#omni#input_patterns')
-    let g:deoplete#omni#input_patterns = {}
-  endif
-
   augroup omnifuncs
     autocmd!
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -330,9 +323,8 @@ endif
 " Ultisnips
 """"""""""""""""""""""""""""""
 " Trigger configuration
-" let g:UltiSnipsExpandTrigger="<C-l>"
+let g:UltiSnipsExpandTrigger="<C-l>"
 
-let g:UltiSnipsExpandTrigger="<C-space>"
 " let g:UltiSnipsJumpForwardTrigger="<Tab>"
 " let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
@@ -457,3 +449,4 @@ let g:mustache_abbreviations = 0
 " Typescript
 """"""""""""""""""""""""""""""
 let g:typescript_indent_disable = 0
+
