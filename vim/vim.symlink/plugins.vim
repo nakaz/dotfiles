@@ -7,9 +7,6 @@ call plug#begin('~/.vim/plugged')
 " Interactive command execution
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
-" Unite. The interface to rule almost everything
-" Plug 'Shougo/unite.vim'
-
 " Most Recently Used
 Plug 'Shougo/neomru.vim'
 
@@ -38,9 +35,6 @@ Plug 'jlanzarotta/bufexplorer'
 
 " Tree explorer for vim.
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-
-" Asynchronous linter
-" Plug 'benekastah/neomake'
 
 " Cache file automatically
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -214,71 +208,6 @@ let MRU_Max_Entries = 400
 
 
 """"""""""""""""""""""""""""""
-" Unite.vim
-""""""""""""""""""""""""""""""
-
-" " Use the fuzzy matcher for everything
-" call unite#filters#matcher_default#use(['matcher_fuzzy'])
-" call unite#filters#converter_default#use(['converter_relative_word'])
-" call unite#filters#sorter_default#use(['sorter_rank'])
-" call unite#custom#source('file_mru,file_rec,file_rec/async', 'converters', 'converter_relative_word')
-
-" " Restrict mru to display files for current project
-" call unite#custom#source(
-"   \ 'file_mru', 'matchers',
-"   \ ['matcher_project_files', 'matcher_fuzzy'])
-
-" call unite#custom#profile('default', 'context', {
-"   \ 'cursor_line_highlight' : 'CursorLine',
-"   \ 'start_insert': 1,
-"   \ 'winheight': 10,
-"   \ 'direction': 'botright',
-"   \ })
-
-" " Set up some custom ignores
-" call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
-"   \ 'ignore_pattern', join([
-"   \ '\.git/',
-"   \ 'tmp/',
-"   \ '.sass-cache',
-"   \ 'node_modules/',
-"   \ 'bower_components/',
-"   \ 'dist/',
-"   \ '.pyc',
-"   \ ], '\|'))
-
-" let g:unite_data_directory='~/.vim/.cache/unite'
-" let g:unite_source_history_yank_enable=1
-" let g:unite_source_rec_max_cache_files=5000
-" let g:unite_source_file_mru_limit=200
-" let g:unite_source_rec_async_command =
-"       \ ['ag', '--follow', '--nocolor', '--nogroup',
-"       \  '--hidden', '-g', '']
-" let g:unite_source_grep_command = 'ag'
-" let g:unite_source_grep_default_opts = '-s -H --nocolor --nogroup --column'
-" let g:unite_source_grep_recursive_opt = ''
-" let g:unite_prompt='❯ '
-
-" " nnoremap <C-f> :<C-u>Unite -buffer-name=files file_mru file_rec/async:!<CR>
-" nnoremap <leader>f :<C-u>Unite -no-split -no-resize -direction=topleft -buffer-name=mru file_mru<CR>
-" nnoremap <leader>y :<C-u>Unite -no-start-insert history/yank<CR>
-" nnoremap <leader>/ :<C-u>Unite grep:.<CR>
-
-" " Custom mappings for the unite buffer
-" autocmd FileType unite call s:unite_keymaps()
-
-" function! s:unite_keymaps()
-"   " Enable navigation with control-j and control-k in insert mode
-"   imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-"   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-
-"   " Exit unite with Esc while in insert mode
-"   nmap <buffer> <Esc>   <Plug>(unite_exit)
-"   imap <buffer> <Esc>   <Plug>(unite_exit)
-" endfunction
-
-
-""""""""""""""""""""""""""""""
 " FZF
 """"""""""""""""""""""""""""""
 let g:fzf_layout = { 'down': '40%' }
@@ -372,13 +301,6 @@ if has('nvim')
   " Enable deoplete.
   let g:deoplete#enable_at_startup = 1
 
-  " Use buffer path instead of the current directory
-  let g:deoplete#file#enable_buffer_path = 1
-
-  if !exists('g:deoplete#omni#input_patterns')
-    let g:deoplete#omni#input_patterns = {}
-  endif
-
   augroup omnifuncs
     autocmd!
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -401,9 +323,8 @@ endif
 " Ultisnips
 """"""""""""""""""""""""""""""
 " Trigger configuration
-" let g:UltiSnipsExpandTrigger="<C-l>"
+let g:UltiSnipsExpandTrigger="<C-l>"
 
-let g:UltiSnipsExpandTrigger="<C-space>"
 " let g:UltiSnipsJumpForwardTrigger="<Tab>"
 " let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
@@ -467,7 +388,6 @@ let g:org_todo_keywords = ['TODO', 'WAITING', '|', 'DONE']
 """"""""""""""""""""""""""""""
 let g:tmuxline_preset = {
   \"a"    : "#S",
-  \"b"    : "#(ifconfig en0 | grep 'inet ' | awk '{print $2}')",
   \"c"    : "",
   \"win"  : "#I  #W",
   \"cwin" : "#I  #W",
@@ -506,51 +426,6 @@ let g:ale_linters = {
 \   'javascript': ['eslint']
 \ }
 
-""""""""""""""""""""""""""""""
-" Neomake
-""""""""""""""""""""""""""""""
-" autocmd! BufWritePost * Neomake
-" let g:neomake_open_list = 2
-" let g:neomake_list_height = 7
-
-" let g:neomake_stylelint = {
-"   \ 'args': [
-"   \   '--config', '~/.stylelintrc'
-"   \ ],
-"   \ 'errorformat':
-"   \ '%+P%f,' .
-"   \ '%*\s%l:%c  %t  %m,' .
-"   \ '%-Q'
-"   \ }
-
-" let g:neomake_warning_sign = {
-"   \ 'text': 'W',
-"   \ 'texthl': 'GitGutterChangeDefault',
-"   \ }
-
-" let g:neomake_error_sign = {
-"   \ 'text': 'E',
-"   \ 'texthl': 'GitGutterDeleteDefault',
-"   \ }
-
-" let g:neomake_javascript_enabled_makers = ['eslint']
-" let g:neomake_json_enabled_makers = ['jsonlint']
-" let g:neomake_css_stylelint_maker = neomake_stylelint
-" let g:neomake_scss_stylelint_maker = neomake_stylelint
-" let g:neomake_css_enabled_makers = ['stylelint']
-" let g:neomake_scss_enabled_makers = ['stylelint']
-
-" let g:neomake_javascript_eslint_exe = './node_modules/.bin/eslint'
-" let g:neomake_css_stylelint_exe = './node_modules/.bin/stylelint'
-
-" Prefer local project eslint over global
-" let g:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
-" let g:neomake_javascript_eslint_exe = substitute(g:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
-
-" Prefer local project stylelint over global
-" let g:stylelint_path = system('PATH=$(npm bin):$PATH && which stylelint')
-" let g:neomake_css_stylelint_exe = substitute(g:stylelint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
-
 
 """"""""""""""""""""""""""""""
 " Tagbar
@@ -574,3 +449,4 @@ let g:mustache_abbreviations = 0
 " Typescript
 """"""""""""""""""""""""""""""
 let g:typescript_indent_disable = 0
+
