@@ -4,8 +4,8 @@
 
 # Fix pbpaste in tmux sessions
 # set-option -g default-command "reattach-to-user-namespace -l zsh"
-set -g default-shell /bin/zsh
-set -g default-command "reattach-to-user-namespace -l /bin/zsh"
+set -g default-shell /usr/local/bin/fish
+set -g default-command "reattach-to-user-namespace -l /usr/local/bin/fish"
 
 # Unbind default prefix and set it to Ctrl+a cause easier
 unbind C-b
@@ -13,8 +13,8 @@ set -g prefix C-a
 bind C-a send-prefix
 
 # tmux display things in 256 colors
-set -g default-terminal "screen-256color"
-set -ga terminal-overrides ",screen-256color:Tc"
+set-option -g default-terminal "screen-256color"
+set-default colorset-option -ga terminal-overrides ",xterm-256color:Tc"
 # set -g status-utf8 on
 
 set -g history-limit 20000
