@@ -15,8 +15,8 @@ bind C-a send-prefix
 # tmux display things in 256 colors
 # set-option -g default-terminal "tmux-256color"
 # set-default colorset-option -ga terminal-overrides ",xterm-256color:Tc"
-set-option -g default-terminal "screen-256color"
-set-default colorset-option -ga terminal-overrides ",xterm-256color:Tc"
+set-option -g default-terminal "xterm-256color"
+set -ga terminal-overrides ",xterm-256color:Tc"
 # set -g status-utf8 on
 
 set -g history-limit 20000
@@ -49,9 +49,6 @@ setw -g pane-base-index 1
 
 # Don't rename my windows
 set-option -g allow-rename off
-
-
-
 
 ##############################
 # => KEY BINDINGS
