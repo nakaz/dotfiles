@@ -4,25 +4,14 @@
 
 call plug#begin('~/.vim/plugged')
 
-" Interactive command execution
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-
-" Most Recently Used
-Plug 'Shougo/neomru.vim'
-
 " Command-line fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-if has('nvim')
-  " Asynchronous completion for neovim
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  " Tern-based JavaScript editing support
-  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-else
-  " Code completion
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
-endif
+" Asynchronous completion for neovim
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Tern-based JavaScript editing support
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Emmet for vim
 Plug 'mattn/emmet-vim'
@@ -36,12 +25,8 @@ Plug 'jlanzarotta/bufexplorer'
 " Tree explorer for vim.
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-" Cache file automatically
-Plug 'MarcWeber/vim-addon-mw-utils'
-
 " Lean & mean status/tabline
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 " Vim-Airline themes for Status Bar
 Plug 'vim-airline/vim-airline-themes'
@@ -55,20 +40,11 @@ Plug 'terryma/vim-expand-region'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 
-" SCSS syntax highlighting
-Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
-
 " Markdown syntax highlighting
 Plug 'plasticboy/vim-markdown', { 'for': 'md' }
 
 " Enable repeating supported plugin maps
 Plug 'tpope/vim-repeat'
-
-" Ultimate snippet solution
-Plug 'SirVer/ultisnips'
-
-" Snippet files for various programming languages
-Plug 'honza/vim-snippets'
 
 " Quoting/parenthesizing made simple
 Plug 'tpope/vim-surround'
@@ -82,12 +58,6 @@ Plug 'edkolev/tmuxline.vim'
 " Undo history visualizer
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
-" Preview colors in source code
-Plug 'ap/vim-css-color'
-
-" CSS3 syntax support
-Plug 'hail2u/vim-css3-syntax'
-
 " Vim Workspace Controller
 Plug 'szw/vim-ctrlspace'
 
@@ -97,20 +67,8 @@ Plug 'easymotion/vim-easymotion'
 " Shows a git diff in the gutter
 Plug 'airblade/vim-gitgutter'
 
-" Instant Markdown previews
-Plug 'suan/vim-instant-markdown'
-
-" Jade syntax highlighting
-Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
-
-" Mustache/Handlebars syntax highlighting
-Plug 'mustache/vim-mustache-handlebars'
-
 " Javascript indentation and syntax support
 Plug 'pangloss/vim-javascript'
-
-" Yet Another JavaScript Syntax
-Plug 'othree/yajs.vim'
 
 " Sublime Text style multiple selections
 Plug 'terryma/vim-multiple-cursors'
@@ -124,44 +82,17 @@ Plug 'ryanoasis/vim-devicons'
 " Zoom in/out of windows
 Plug 'troydm/zoomwintab.vim'
 
-" Search Dash from vim
-Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
-
-" Gotham colorscheme
-Plug 'whatyouhide/vim-gotham'
-"
 " Oceanic Next colorscheme
 Plug 'mhartington/oceanic-next'
-
-" Solarized colorscheme
-Plug 'altercation/vim-colors-solarized'
-
-" Vim Orgmode
-Plug 'jceb/vim-orgmode', { 'for': 'org' }
-
-" Increment dates, times, and more
-Plug 'tpope/vim-speeddating'
 
 " Insert or delete brackets, parens, quotes in pair
 Plug 'jiangmiao/auto-pairs'
 
-" Tern-based JavaScript editing support
-" Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
-
 " React JSX syntax highlighting & indenting
 Plug 'mxw/vim-jsx'
 
-" EditorConfig for consistent coding style
-Plug 'editorconfig/editorconfig-vim'
-
-" Class outline viewer
-Plug 'majutsushi/tagbar'
-
 " Asynchronous Linter
 Plug 'w0rp/ale'
-
-" Provides additional text objects
-Plug 'wellle/targets.vim'
 
 " GraphQL fs, syntax, and indentation support
 Plug 'jparise/vim-graphql'
@@ -174,17 +105,6 @@ Plug 'leafgarland/typescript-vim'
 
 " Svelte syntax highlighting and indentation support
 Plug 'evanleck/vim-svelte'
-
-" Includes WakaTime to track usage
-" Plug 'wakatime/vim-wakatime'
-
-if !has ('nvim')
-  " Haxe plugin
-  Plug 'jdonaldson/vaxe'
-" elseif has ('nvim')
-  " Haxe Plugin for NeoVim
-  " Plug 'jdonaldson/neovaxe'
-endif
 
 call plug#end()
 
@@ -268,9 +188,6 @@ let g:airline#extensions#default#section_truncate_width = {
   \ 'warning': 50,
   \ }
 
-let g:airline#extensions#tagbar#enabled = 0
-
-
 """"""""""""""""""""""""""""""
 " vim-easymotion
 """"""""""""""""""""""""""""""
@@ -289,7 +206,6 @@ map <leader>k <Plug>(easymotion-k)
 map <leader>h <Plug>(easymotion-linebackward)
 
 let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
-
 
 """"""""""""""""""""""""""""""
 " vim-fugitive
@@ -327,27 +243,9 @@ endif
 
 
 """"""""""""""""""""""""""""""
-" Ultisnips
-""""""""""""""""""""""""""""""
-" Trigger configuration
-let g:UltiSnipsExpandTrigger="<C-l>"
-
-" let g:UltiSnipsJumpForwardTrigger="<Tab>"
-" let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-
-
-""""""""""""""""""""""""""""""
-" vim-instant-markdown
-""""""""""""""""""""""""""""""
-let g:instant_markdown_slow = 1
-let g:instant_markdown_autostart = 0
-
-
-""""""""""""""""""""""""""""""
 " vim markdown
 """"""""""""""""""""""""""""""
 let g:vim_markdown_folding_disabled=1
-
 
 """"""""""""""""""""""""""""""
 " undotree
@@ -362,12 +260,10 @@ if has("persistent_undo")
   set undofile
 endif
 
-
 """"""""""""""""""""""""""""""
 " ZoomWin
 """"""""""""""""""""""""""""""
 nnoremap <silent> <leader>z :ZoomWinTabToggle<cr>
-
 
 """"""""""""""""""""""""""""""
 " CtrlSF
@@ -380,15 +276,6 @@ vmap ƒ <Plug>CtrlSFVwordPath
 map † :CtrlSFToggle<CR>
 
 let g:ctrlsf_indent = 2
-
-
-""""""""""""""""""""""""""""""
-" Vim Orgmode
-""""""""""""""""""""""""""""""
-let g:org_export_emacs="/usr/local/bin/emacs"
-let g:org_agenda_files = ['~/Desktop/Notes/daily-notes.org']
-let g:org_todo_keywords = ['TODO', 'WAITING', '|', 'DONE']
-
 
 """"""""""""""""""""""""""""""
 " Tmuxline
@@ -409,7 +296,6 @@ let g:tmuxline_separators = {
   \ 'right' : '',
   \ 'right_alt' : '',
   \ 'space' : ' '}
-
 
 """"""""""""""""""""""""""""""
 " vim-jsx
@@ -432,25 +318,6 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_linters = {
 \   'javascript': ['eslint']
 \ }
-
-
-""""""""""""""""""""""""""""""
-" Tagbar
-""""""""""""""""""""""""""""""
-nmap <leader>t :TagbarToggle<CR>
-let g:tagbar_iconchars = ['▸', '▾']
-
-
-""""""""""""""""""""""""""""""
-" EditorConfig
-""""""""""""""""""""""""""""""
-let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-"
-""""""""""""""""""""""""""""""
-" Mustache/Handlebars
-""""""""""""""""""""""""""""""
-let g:mustache_operators = 0
-let g:mustache_abbreviations = 0
 
 """"""""""""""""""""""""""""""
 " Typescript
