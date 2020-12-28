@@ -172,6 +172,9 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Typescript syntax highlighting
 Plug 'leafgarland/typescript-vim'
 
+" Svelte syntax highlighting and indentation support
+Plug 'evanleck/vim-svelte'
+
 " Includes WakaTime to track usage
 " Plug 'wakatime/vim-wakatime'
 
@@ -249,11 +252,12 @@ let g:multi_cursor_quit_key="<Esc>"
 """"""""""""""""""""""""""""""
 let g:airline#extensions#branch#displayed_head_limit = 10
 let g:airline_powerline_fonts = 1
-if has("gui_running")
-  let g:airline_theme="luna"
-else
-  let g:airline_theme="oceanicnext"
-endif
+let g:airline_theme="oceanicnext"
+" if has("gui_running")
+"   let g:airline_theme="luna"
+" else
+"   let g:airline_theme="oceanicnext"
+" endif
 
 " Automatically truncate sections
 let g:airline#extensions#default#section_truncate_width = {
@@ -313,6 +317,9 @@ if has('nvim')
   let g:tern_request_timeout = 1
   let g:tern_show_argument_hints = 'on_hold'
   let g:tern_show_signature_in_pum = 0
+
+  call deoplete#custom#option('num_processes', 4)
+  call deoplete#enable_logging('DEBUG', 'deoplete.log')
 
   " Automatically close preview window after autocompletion
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -450,3 +457,8 @@ let g:mustache_abbreviations = 0
 """"""""""""""""""""""""""""""
 let g:typescript_indent_disable = 0
 
+""""""""""""""""""""""""""""""
+" Svelte
+""""""""""""""""""""""""""""""
+let g:svelte_indent_script = 0
+let g:svelte_indent_style = 0
