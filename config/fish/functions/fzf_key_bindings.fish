@@ -1,0 +1,1 @@
+/Users/nakaz/.fzf/shell/key-bindings.fish

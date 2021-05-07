@@ -10,11 +10,12 @@ Plug 'junegunn/fzf.vim'
 
 " Asynchronous completion for neovim
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 " Tern-based JavaScript editing support
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Emmet for vim
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 
 " Code search and view tool
 Plug 'dyng/ctrlsf.vim'
@@ -35,13 +36,13 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
 
 " Visually select larger regions of text using the same key combination
-Plug 'terryma/vim-expand-region'
+" Plug 'terryma/vim-expand-region'
 
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 
 " Markdown syntax highlighting
-Plug 'plasticboy/vim-markdown', { 'for': 'md' }
+" Plug 'plasticboy/vim-markdown', { 'for': 'md' }
 
 " Enable repeating supported plugin maps
 Plug 'tpope/vim-repeat'
@@ -50,7 +51,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
 " Display indention levels with vertical lines
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 
 " Tmux statusline generator with support for airline
 Plug 'edkolev/tmuxline.vim'
@@ -59,13 +60,13 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
 " Vim Workspace Controller
-Plug 'szw/vim-ctrlspace'
+" Plug 'szw/vim-ctrlspace'
 
 " Vim motions on speed
 Plug 'easymotion/vim-easymotion'
 
 " Shows a git diff in the gutter
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 
 " Javascript indentation and syntax support
 Plug 'pangloss/vim-javascript'
@@ -77,7 +78,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'christoomey/vim-tmux-navigator'
 
 " Add filetype glyphs (icons)
-Plug 'ryanoasis/vim-devicons'
+" Plug 'ryanoasis/vim-devicons'
 
 " Zoom in/out of windows
 Plug 'troydm/zoomwintab.vim'
@@ -101,7 +102,7 @@ Plug 'jparise/vim-graphql'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Typescript syntax highlighting
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
 
 " Svelte syntax highlighting and indentation support
 Plug 'evanleck/vim-svelte'
@@ -144,7 +145,7 @@ let g:fzf_buffers_jump = 1
 " Search project files, respecting git ignore
 " nnoremap <silent> <C-f> :FZF<CR>
 " Search all files, e.g. node_modules/
-nnoremap <silent> <leader>af :call fzf#vim#files('',
+noremap <silent> <leader>af :call fzf#vim#files('',
       \ {'source': 'ag --hidden --ignore .git -f -g "" -u', 'down': '40%'})<CR>
 " Search MRU buffers
 nnoremap <silent> <leader>f :Buffers<CR>
